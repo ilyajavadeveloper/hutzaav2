@@ -1,105 +1,120 @@
 .painting {
-    padding: 60px 20px;
-    background-color: #fffefc;
-  }
-  
+  padding: 60px 20px;
+  background: linear-gradient(to right, #fff4e3, #fef9f5);
+  text-align: center;
+}
+
+.painting-title {
+  font-size: 34px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 40px;
+}
+
+.painting-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 32px;
+  max-width: 1280px;
+  margin: 0 auto 30px;
+}
+
+.painting-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.painting-card:hover {
+  transform: translateY(-6px);
+}
+
+.painting-image-wrapper {
+  aspect-ratio: 3 / 4;
+  background-color: #f2f2f2;
+  overflow: hidden;
+}
+
+.painting-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.painting-card:hover .painting-image {
+  transform: scale(1.04);
+}
+
+.painting-info {
+  padding: 18px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.painting-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.painting-price {
+  font-size: 16px;
+  font-weight: 500;
+  color: #d1922e;
+  margin-bottom: 14px;
+}
+
+.painting-button {
+  padding: 10px 18px;
+  background-color: #d1922e;
+  color: #fff;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.painting-button:hover {
+  background-color: #a6711d;
+}
+
+.painting-toggle {
+  margin-top: 10px;
+  padding: 10px 22px;
+  font-size: 15px;
+  background-color: #ffffff;
+  color: #d1922e;
+  border: 2px solid #d1922e;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.painting-toggle:hover {
+  background-color: #fff7ec;
+  transform: translateY(-2px);
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
   .painting-title {
-    text-align: center;
-    font-size: 34px;
-    font-weight: 700;
-    margin-bottom: 40px;
-    color: #1a1a1a;
+    font-size: 26px;
   }
-  
+
   .painting-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 32px;
-    max-width: 1280px;
-    margin: 0 auto;
+    gap: 24px;
   }
-  
-  .painting-card {
-    display: flex;
-    flex-direction: column;
-    border-radius: 12px;
-    background-color: #f9f9f9;
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-    transition: transform 0.3s ease;
-  }
-  
-  .painting-card:hover {
-    transform: translateY(-6px);
-  }
-  
-  .painting-image-wrapper {
+
+  .painting-button,
+  .painting-toggle {
     width: 100%;
-    aspect-ratio: 3 / 4;
-    overflow: hidden;
-    background-color: #f0f0f0;
   }
-  
-  .painting-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
-  }
-  
-  .painting-card:hover .painting-image {
-    transform: scale(1.04);
-  }
-  
-  .painting-info {
-    padding: 16px 20px 20px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .painting-name {
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 8px;
-  }
-  
-  .painting-price {
-    font-size: 16px;
-    font-weight: 500;
-    color: #d1922e;
-    margin-bottom: 12px;
-  }
-  
-  .painting-button {
-    padding: 10px 20px;
-    background-color: #d1922e;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-size: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    align-self: start;
-  }
-  
-  .painting-button:hover {
-    background-color: #a6711d;
-  }
-  
-  /* ✅ Адаптив */
-  @media (max-width: 768px) {
-    .painting-title {
-      font-size: 26px;
-    }
-  
-    .painting-grid {
-      gap: 24px;
-    }
-  
-    .painting-image-wrapper {
-      aspect-ratio: 3 / 4;
-    }
-  }
-  
+}

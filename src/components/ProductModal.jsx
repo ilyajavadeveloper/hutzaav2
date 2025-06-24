@@ -1,17 +1,26 @@
-import "./Modal.css"
+import "./ProductModal.css"
 
 export default function ProductModal({ product, onClose }) {
   if (!product) return null
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-box" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close" onClick={onClose}>×</button>
-        <img src={product.image} alt={product.name} className="modal-image" />
-        <h2 className="modal-title">{product.name}</h2>
-        <p className="modal-price">₪{product.price}</p>
-        <p className="modal-desc">Уникальный дизайн и высокое качество пошива.</p>
-        <button className="modal-button" onClick={() => handleCheckout(product)}>Оплатить</button>
+
+        <div className="modal-image-wrapper">
+          <img src={product.image} alt={product.name} />
+        </div>
+
+        <div className="modal-details">
+          <h2 className="modal-title">{product.name}</h2>
+          <p className="modal-price">₪{product.price}</p>
+          <p className="modal-desc">Уникальный дизайн и высокое качество пошива.</p>
+
+          <button className="modal-buy" onClick={() => handleCheckout(product)}>
+            Оплатить
+          </button>
+        </div>
       </div>
     </div>
   )

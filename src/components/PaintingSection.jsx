@@ -11,12 +11,16 @@ const paintings = Array.from({ length: 12 }, (_, i) => ({
 
 export default function PaintingSection() {
   const [selectedPainting, setSelectedPainting] = useState(null)
+  const [showAll, setShowAll] = useState(false)
+
+  const visiblePaintings = showAll ? paintings : paintings.slice(0, 4)
 
   return (
     <section className="painting" id="painting">
       <h2 className="painting-title">Картины ручной работы</h2>
+
       <div className="painting-grid">
-        {paintings.map((painting) => (
+        {visiblePaintings.map((painting) => (
           <div className="painting-card" key={painting.id}>
             <div className="painting-image-wrapper">
               <img
@@ -38,6 +42,12 @@ export default function PaintingSection() {
           </div>
         ))}
       </div>
+
+      {paintings.length > 4 && (
+        <button className="painting-toggle" onClick={() => setShowAll(!showAll)}>
+          {showAll ? "Скрыть" : "Показать все"}
+        </button>
+      )}
 
       {selectedPainting && (
         <PaintingModal

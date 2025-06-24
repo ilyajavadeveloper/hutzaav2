@@ -1,17 +1,29 @@
-import "./Modal.css"
+import "./PaintingModal.css"
 
 export default function PaintingModal({ painting, onClose }) {
   if (!painting) return null
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-box" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close" onClick={onClose}>×</button>
-        <img src={painting.image} alt={painting.title} className="modal-image" />
-        <h2 className="modal-title">{painting.title}</h2>
-        <p className="modal-price">₪{painting.price}</p>
-        <p className="modal-desc">Авторская живопись, душа в каждом мазке.</p>
-        <button className="modal-button" onClick={() => handleCheckout(painting)}>Оплатить</button>
+
+        <div className="modal-image-wrapper">
+          <img src={painting.image} alt={painting.title} />
+        </div>
+
+        <div className="modal-details">
+          <h2 className="modal-title">{painting.title}</h2>
+          <p className="modal-price">₪{painting.price}</p>
+          <p className="modal-desc">Авторская живопись, душа в каждом мазке.</p>
+
+          <button
+            className="modal-buy"
+            onClick={() => handleCheckout(painting)}
+          >
+            Оплатить
+          </button>
+        </div>
       </div>
     </div>
   )

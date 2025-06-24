@@ -2,26 +2,17 @@ import "./HeroSection.css"
 
 export default function HeroSection() {
   return (
-    <section className="hero">
+    <section className="hero" id="hero">
+      <div className="hero-overlay" />
       <div className="hero-content">
-        <div className="hero-left">
-          <h1 className="hero-title">HUTZAAV — Ателье с душой</h1>
-          <p className="hero-text">
-            Более 20 лет опыта, индивидуальный подход, высокое качество пошива и любовь к деталям.
-          </p>
-          <p className="hero-text">
-            Галина Хвостенко создаёт уникальные вещи, которые подчеркивают индивидуальность и стиль.
-          </p>
-          <button className="hero-button">Записаться</button>
-        </div>
-
-        <div className="hero-right">
-          <img
-            src="/clothing11.jpg"
-            alt="Ателье Hutzahav"
-            className="hero-image-large"
-          />
-        </div>
+        <h1 className="hero-title">HUTZAAV — Ателье с душой</h1>
+        <p className="hero-text">
+          Более 20 лет создаём одежду, в которую влюбляешься. Индивидуальный пошив, премиум-материалы и стиль в каждой строчке.
+        </p>
+        <p className="hero-subtext">
+          Автор — Галина Хвостенко. Одежда, которая говорит за вас.
+        </p>
+        <button className="hero-button">Записаться</button>
       </div>
     </section>
   )

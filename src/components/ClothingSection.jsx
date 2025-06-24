@@ -1,6 +1,7 @@
+// ClothingSection.jsx
 import { useState } from "react"
-import "./ClothingSection.css"
 import ProductModal from "./ProductModal"
+import "./ClothingSection.css"
 
 const products = Array.from({ length: 19 }, (_, i) => ({
   id: i + 1,
@@ -11,12 +12,15 @@ const products = Array.from({ length: 19 }, (_, i) => ({
 
 export default function ClothingSection() {
   const [selectedProduct, setSelectedProduct] = useState(null)
+  const [expanded, setExpanded] = useState(false)
+
+  const visibleProducts = expanded ? products : products.slice(0, 4)
 
   return (
     <section className="clothing" id="clothing">
       <h2 className="clothing-title">Коллекция одежды</h2>
       <div className="clothing-grid">
-        {products.map((product) => (
+        {visibleProducts.map((product) => (
           <div className="clothing-card" key={product.id}>
             <div className="image-wrapper">
               <img
@@ -35,6 +39,12 @@ export default function ClothingSection() {
           </div>
         ))}
       </div>
+
+      {products.length > 4 && (
+        <button className="clothing-toggle" onClick={() => setExpanded(!expanded)}>
+          {expanded ? "Скрыть" : "Показать всё"}
+        </button>
+      )}
 
       {selectedProduct && (
         <ProductModal

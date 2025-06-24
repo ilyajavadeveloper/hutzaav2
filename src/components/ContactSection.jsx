@@ -25,7 +25,16 @@ export default function ContactSection() {
         </a>
 
         <a
-          href="mailto:Hutzahav@gmail.com"
+          href="https://t.me/+972528491688"
+          className="contact-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          ✈️ Telegram
+        </a>
+
+        <a
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=Hutzahav@gmail.com"
           className="contact-link"
           target="_blank"
           rel="noopener noreferrer"
