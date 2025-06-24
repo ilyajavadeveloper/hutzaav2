@@ -1,26 +1,26 @@
-import { useState } from "react"
-import PaintingModal from "./PaintingModal"
-import "./HomeSection.css"
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import PaintingModal from "./PaintingModal";
+import "./HomeSection.css";
 
 const items = Array.from({ length: 6 }, (_, i) => ({
   id: i + 1,
   title: `Предмет №${i + 1}`,
   price: 300 + i * 40,
   image: `/home${i + 1}.jpg`,
-}))
+}));
 
 export default function HomeSection() {
-  const [selectedItem, setSelectedItem] = useState(null)
-  const [showAll, setShowAll] = useState(false)
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [showAll, setShowAll] = useState(false);
+  const { t } = useTranslation();
 
-  const visibleItems = showAll ? items : items.slice(0, 4)
+  const visibleItems = showAll ? items : items.slice(0, 4);
 
   return (
     <section className="home" id="home">
-      <h2 className="home-title">Домашняя коллекция</h2>
-      <p className="home-subtext">
-        Уникальные предметы интерьера, в которых сочетаются эстетика и уют. Добавьте тепло и стиль в свой дом.
-      </p>
+      <h2 className="home-title">{t("home_title")}</h2>
+      <p className="home-subtext">{t("home_subtext")}</p>
 
       <div className="home-grid">
         {visibleItems.map((item) => (
@@ -35,7 +35,7 @@ export default function HomeSection() {
                 className="home-button"
                 onClick={() => setSelectedItem(item)}
               >
-                Купить
+                {t("home_button")}
               </button>
             </div>
           </div>
@@ -44,7 +44,7 @@ export default function HomeSection() {
 
       {items.length > 4 && (
         <button className="home-toggle" onClick={() => setShowAll(!showAll)}>
-          {showAll ? "Скрыть" : "Показать всё"}
+          {showAll ? t("home_toggle_hide") : t("home_toggle_show")}
         </button>
       )}
 
@@ -55,5 +55,5 @@ export default function HomeSection() {
         />
       )}
     </section>
-  )
+  );
 }

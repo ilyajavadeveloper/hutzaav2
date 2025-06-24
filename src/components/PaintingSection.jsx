@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import PaintingModal from "./PaintingModal";
 import "./PaintingSection.css";
 
@@ -12,15 +13,14 @@ const paintings = Array.from({ length: 12 }, (_, i) => ({
 export default function PaintingSection() {
   const [selectedPainting, setSelectedPainting] = useState(null);
   const [expanded, setExpanded] = useState(false);
+  const { t } = useTranslation();
 
   const visiblePaintings = expanded ? paintings : paintings.slice(0, 4);
 
   return (
     <section className="painting" id="painting">
-      <h2 className="painting-title">Арт-коллекция HUTZAAV</h2>
-      <p className="painting-subtext">
-        Картины ручной работы — отражение характера и настроения. Мы создаём уникальные работы, чтобы они говорили за вас.
-      </p>
+      <h2 className="painting-title">{t("painting_title")}</h2>
+      <p className="painting-subtext">{t("painting_subtext")}</p>
 
       <div className="painting-grid">
         {visiblePaintings.map((painting) => (
@@ -39,7 +39,7 @@ export default function PaintingSection() {
                 className="painting-button"
                 onClick={() => setSelectedPainting(painting)}
               >
-                Купить
+                {t("painting_button")}
               </button>
             </div>
           </div>
@@ -51,7 +51,7 @@ export default function PaintingSection() {
           className="painting-toggle"
           onClick={() => setExpanded(!expanded)}
         >
-          {expanded ? "Скрыть" : "Показать все"}
+          {expanded ? t("painting_toggle_hide") : t("painting_toggle_show")}
         </button>
       )}
 

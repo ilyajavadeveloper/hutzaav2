@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import "./HeroSection.css";
 
 const sliderImages = [
@@ -8,20 +9,17 @@ const sliderImages = [
 ];
 
 export default function HeroSection() {
+  const { t } = useTranslation();
   const images = [...sliderImages, ...sliderImages, ...sliderImages];
 
   return (
     <section className="hero" id="hero">
       <div className="hero-overlay" />
       <div className="hero-content">
-        <h1 className="hero-title">HUTZAAV — Ателье Галины Хвостенко</h1>
-        <p className="hero-text">
-          Более 20 лет опыта, тонкий вкус и ручная работа на каждом этапе. Уникальные изделия, в которых сочетаются качество, комфорт и индивидуальность.
-        </p>
-        <p className="hero-subtext">
-          Одежда, в которой вы чувствуете себя собой.
-        </p>
-        <button className="hero-button">Записаться</button>
+        <h1 className="hero-title">{t("hero_title")}</h1>
+        <p className="hero-text">{t("hero_text")}</p>
+        <p className="hero-subtext">{t("hero_subtext")}</p>
+        <button className="hero-button">{t("hero_button")}</button>
       </div>
 
       <div className="hero-slider">

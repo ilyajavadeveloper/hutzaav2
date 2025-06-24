@@ -126,3 +126,22 @@
     display: flex;
   }
 }
+.desktop-lang {
+  display: block;
+}
+
+.mobile-lang {
+  display: none;
+}
+
+/* Только на мобильных */
+@media (max-width: 768px) {
+  .desktop-lang {
+    display: none;
+  }
+
+  .mobile-lang {
+    display: block;
+    margin-top: 12px;
+  }
+}

@@ -1,12 +1,14 @@
+import { useTranslation } from "react-i18next";
 import "./ContactSection.css";
 
 export default function ContactSection() {
+  const { t } = useTranslation();
+
   return (
     <section className="contact" id="contact">
-      <h2 className="contact-title">Связь с ателье HUTZAAV</h2>
-      <p className="contact-subtext">
-        Мы всегда на связи — выберите удобный способ и свяжитесь с нами прямо сейчас.
-      </p>
+      <h2 className="contact-title">{t("contact_title")}</h2>
+      <p className="contact-subtext">{t("contact_subtext")}</p>
+      
       <div className="contact-info">
         <a
           href="tel:+972528491688"
