@@ -1,24 +1,27 @@
-// ClothingSection.jsx
-import { useState } from "react"
-import ProductModal from "./ProductModal"
-import "./ClothingSection.css"
+import { useState } from "react";
+import ProductModal from "./ProductModal";
+import "./ClothingSection.css";
 
-const products = Array.from({ length: 19 }, (_, i) => ({
+const products = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
   name: `Модель №${i + 1}`,
   price: 400 + i * 25,
   image: `/clothing${i + 1}.jpg`,
-}))
+}));
 
 export default function ClothingSection() {
-  const [selectedProduct, setSelectedProduct] = useState(null)
-  const [expanded, setExpanded] = useState(false)
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [expanded, setExpanded] = useState(false);
 
-  const visibleProducts = expanded ? products : products.slice(0, 4)
+  const visibleProducts = expanded ? products : products.slice(0, 4);
 
   return (
     <section className="clothing" id="clothing">
-      <h2 className="clothing-title">Коллекция одежды</h2>
+      <h2 className="clothing-title">Коллекция от HUTZAAV</h2>
+      <p className="clothing-subtext">
+        Каждый образ — это история, сотканная из стиля, вкуса и уверенности.  
+      </p>
+
       <div className="clothing-grid">
         {visibleProducts.map((product) => (
           <div className="clothing-card" key={product.id}>
@@ -53,5 +56,5 @@ export default function ClothingSection() {
         />
       )}
     </section>
-  )
+  );
 }

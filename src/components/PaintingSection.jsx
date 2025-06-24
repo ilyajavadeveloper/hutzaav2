@@ -1,23 +1,26 @@
-import { useState } from "react"
-import PaintingModal from "./PaintingModal"
-import "./PaintingSection.css"
+import { useState } from "react";
+import PaintingModal from "./PaintingModal";
+import "./PaintingSection.css";
 
 const paintings = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
   title: `Картина №${i + 1}`,
   price: 700 + i * 30,
   image: `/paint${i + 1}.jpg`,
-}))
+}));
 
 export default function PaintingSection() {
-  const [selectedPainting, setSelectedPainting] = useState(null)
-  const [showAll, setShowAll] = useState(false)
+  const [selectedPainting, setSelectedPainting] = useState(null);
+  const [expanded, setExpanded] = useState(false);
 
-  const visiblePaintings = showAll ? paintings : paintings.slice(0, 4)
+  const visiblePaintings = expanded ? paintings : paintings.slice(0, 4);
 
   return (
     <section className="painting" id="painting">
-      <h2 className="painting-title">Картины ручной работы</h2>
+      <h2 className="painting-title">Арт-коллекция HUTZAAV</h2>
+      <p className="painting-subtext">
+        Картины ручной работы — отражение характера и настроения. Мы создаём уникальные работы, чтобы они говорили за вас.
+      </p>
 
       <div className="painting-grid">
         {visiblePaintings.map((painting) => (
@@ -44,8 +47,11 @@ export default function PaintingSection() {
       </div>
 
       {paintings.length > 4 && (
-        <button className="painting-toggle" onClick={() => setShowAll(!showAll)}>
-          {showAll ? "Скрыть" : "Показать все"}
+        <button
+          className="painting-toggle"
+          onClick={() => setExpanded(!expanded)}
+        >
+          {expanded ? "Скрыть" : "Показать все"}
         </button>
       )}
 
@@ -56,5 +62,5 @@ export default function PaintingSection() {
         />
       )}
     </section>
-  )
+  );
 }

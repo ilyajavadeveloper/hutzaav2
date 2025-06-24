@@ -1,7 +1,8 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,13 +12,14 @@
 }
 
 .modal-box {
-  background: #ffffff;
+  background: #1a1a1f;
+  color: #f5f5f5;
   max-width: 600px;
   width: 100%;
   max-height: 90vh;
   border-radius: 16px;
   overflow-y: auto;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
   animation: slideUp 0.4s ease forwards;
   position: relative;
   display: flex;
@@ -29,7 +31,7 @@
   top: 14px;
   right: 18px;
   font-size: 28px;
-  color: #555;
+  color: #888;
   border: none;
   background: none;
   cursor: pointer;
@@ -38,17 +40,18 @@
 }
 
 .modal-close:hover {
-  color: #000;
+  color: #ffffff;
 }
 
 .modal-image-wrapper {
   width: 100%;
-  background-color: #f0f0f0;
+  background-color: #111;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 16px;
   box-sizing: border-box;
+  border-bottom: 1px solid #2a2a2a;
 }
 
 .modal-image-wrapper img {
@@ -68,7 +71,8 @@
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 10px;
-  color: #1a1a1a;
+  font-family: "Playfair Display", serif;
+  color: #ffffff;
 }
 
 .modal-price {
@@ -80,9 +84,10 @@
 
 .modal-desc {
   font-size: 16px;
-  color: #555;
+  color: #cccccc;
   margin-bottom: 20px;
   line-height: 1.5;
+  font-family: "Manrope", sans-serif;
 }
 
 .modal-buy {
@@ -94,6 +99,7 @@
   font-size: 15px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: 500;
 }
 
 .modal-buy:hover {

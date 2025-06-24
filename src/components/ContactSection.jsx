@@ -1,11 +1,13 @@
-import "./ContactSection.css"
+import "./ContactSection.css";
 
 export default function ContactSection() {
   return (
     <section className="contact" id="contact">
-      <h2 className="contact-title">Связаться с нами</h2>
+      <h2 className="contact-title">Связь с ателье HUTZAAV</h2>
+      <p className="contact-subtext">
+        Мы всегда на связи — выберите удобный способ и свяжитесь с нами прямо сейчас.
+      </p>
       <div className="contact-info">
-
         <a
           href="tel:+972528491688"
           className="contact-link"
@@ -61,5 +63,5 @@ export default function ContactSection() {
         </a>
       </div>
     </section>
-  )
+  );
 }

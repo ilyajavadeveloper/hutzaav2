@@ -1,14 +1,23 @@
 .clothing {
-  padding: 60px 20px;
-  background: linear-gradient(to right, #fff4e3, #fef9f5);
+  padding: 100px 20px;
+  background: #0b0b0f;
+  color: #f5f5f5;
   text-align: center;
 }
 
 .clothing-title {
-  font-size: 34px;
+  font-size: 36px;
+  font-family: "Playfair Display", serif;
   font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 40px;
+  color: #fefefe;
+  margin-bottom: 14px;
+}
+
+.clothing-subtext {
+  font-size: 17px;
+  color: #cfcfcf;
+  font-family: "Manrope", sans-serif;
+  margin-bottom: 50px;
 }
 
 .clothing-grid {
@@ -16,27 +25,28 @@
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 32px;
   max-width: 1280px;
-  margin: 0 auto 30px;
+  margin: 0 auto 40px;
 }
 
 .clothing-card {
   display: flex;
   flex-direction: column;
-  border-radius: 14px;
-  background-color: #ffffff;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  background-color: #1a1a1f;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .clothing-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
 }
 
 .image-wrapper {
   aspect-ratio: 3 / 4;
   overflow: hidden;
-  background-color: #f9f9f9;
+  background-color: #121212;
 }
 
 .clothing-image {
@@ -51,7 +61,7 @@
 }
 
 .card-info {
-  padding: 16px 20px 20px;
+  padding: 18px 20px 24px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -60,8 +70,9 @@
 .item-name {
   font-size: 18px;
   font-weight: 600;
-  color: #333;
+  color: #fefefe;
   margin-bottom: 6px;
+  font-family: "Manrope", sans-serif;
 }
 
 .item-price {
@@ -78,34 +89,40 @@
   border: none;
   border-radius: 8px;
   font-size: 15px;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .item-button:hover {
   background-color: #a6711d;
+  transform: translateY(-2px);
 }
 
 .clothing-toggle {
-  margin-top: 10px;
-  padding: 10px 22px;
+  padding: 12px 28px;
   font-size: 15px;
-  background-color: #ffffff;
+  background-color: transparent;
   color: #d1922e;
   border: 2px solid #d1922e;
   border-radius: 8px;
   cursor: pointer;
+  font-weight: 500;
   transition: all 0.3s ease;
 }
 
 .clothing-toggle:hover {
-  background-color: #fff7ec;
+  background-color: rgba(255, 255, 255, 0.04);
   transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
   .clothing-title {
     font-size: 26px;
+  }
+
+  .clothing-subtext {
+    font-size: 15px;
   }
 
   .item-button,

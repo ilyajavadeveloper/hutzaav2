@@ -1,11 +1,11 @@
 .navbar {
   width: 100%;
-  background-color: #fdf9f2;
-  border-bottom: 1px solid #e9e4db;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(12px);
+  background-color: rgba(11, 11, 15, 0.85);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .navbar-inner {
@@ -20,16 +20,16 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   text-decoration: none;
 }
 
 .logo-img {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
 }
 
 .logo-text {
@@ -48,11 +48,12 @@
 
 .nav-links li a {
   text-decoration: none;
-  color: #222;
+  color: #f5f5f5;
   font-weight: 500;
   font-size: 1rem;
   position: relative;
   transition: color 0.3s ease;
+  font-family: "Manrope", sans-serif;
 }
 
 .nav-links li a::after {
@@ -86,7 +87,7 @@
 .burger span {
   width: 26px;
   height: 2px;
-  background: #222;
+  background: #f5f5f5;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
@@ -109,12 +110,12 @@
     left: 0;
     right: 0;
     flex-direction: column;
-    background-color: #fdf9f2;
+    background-color: rgba(11, 11, 15, 0.95);
     padding: 24px 0;
     gap: 20px;
     display: none;
     align-items: center;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
   }
 
   .nav-links.open {

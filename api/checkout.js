@@ -1,14 +1,14 @@
-// api/checkout.js
-import Stripe from 'stripe'
+// /api/checkout.js
+import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY); // Убедись, что ключ определён в Vercel Settings
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method Not Allowed' })
+    return res.status(405).end("Method Not Allowed");
   }
 
-  const { product } = req.body
+  const { name, price } = req.body;
 
   try {
     const session = await stripe.checkout.sessions.create({
@@ -17,19 +17,20 @@ export default async function handler(req, res) {
       line_items: [
         {
           price_data: {
-            currency: 'usd',
-            product_data: { name: product.name },
-            unit_amount: product.price * 100, // цена в центах
+            currency: 'ils',
+            product_data: { name },
+            unit_amount: price, // шекель * 100
           },
           quantity: 1,
         },
       ],
-      success_url: `${req.headers.origin}/success`,
-      cancel_url: `${req.headers.origin}/cancel`,
-    })
+      success_url: 'https://твой-домен.vercel.app/success',
+      cancel_url: 'https://твой-домен.vercel.app/cancel',
+    });
 
-    return res.status(200).json({ url: session.url })
-  } catch (err) {
-    return res.status(500).json({ error: err.message })
+    res.status(200).json({ url: session.url });
+  } catch (error) {
+    console.error("Stripe error:", error.message);
+    res.status(500).json({ error: error.message });
   }
 }

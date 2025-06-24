@@ -1,14 +1,16 @@
 .hero {
   position: relative;
-  height: 100vh;
-  background-image: url("/HERO2.png"); /* Фон берется из public */
+  min-height: 100vh;
+  background-image: url("/HERO2.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  padding-bottom: 120px;
 }
 
 .hero-overlay {
@@ -22,17 +24,17 @@
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 700px;
-  padding: 20px;
+  max-width: 720px;
+  padding: 24px;
   text-align: center;
   animation: fadeIn 1.2s ease-out;
 }
 
 .hero-title {
-  font-size: 48px;
-  font-weight: bold;
+  font-size: 46px;
+  font-weight: 700;
   color: #f5ecdf;
-  font-family: "Georgia", serif;
+  font-family: "Playfair Display", serif;
   margin-bottom: 20px;
 }
 
@@ -40,7 +42,7 @@
   font-size: 18px;
   color: #e8dcc8;
   margin-bottom: 16px;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .hero-subtext {
@@ -51,12 +53,12 @@
 }
 
 .hero-button {
-  padding: 14px 34px;
+  padding: 14px 36px;
   font-size: 16px;
   background-color: #d1922e;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
 }
@@ -77,26 +79,71 @@
   }
 }
 
+/* === Slider === */
+.hero-slider {
+  position: relative;
+  z-index: 2;
+  margin-top: 60px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+.slider-track {
+  display: flex;
+  gap: 24px;
+  animation: slide 60s linear infinite;
+  will-change: transform;
+}
+
+.slider-img {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s;
+}
+
+.slider-img:hover {
+  transform: scale(1.05);
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-66.66%);
+  }
+}
+
+/* === Adaptive === */
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .hero-text {
-    font-size: 16px;
-  }
-
-  .hero-subtext {
-    font-size: 14px;
-  }
-
-  .hero-button {
-    padding: 12px 24px;
     font-size: 15px;
   }
 
-  .hero-content {
-    gap: 24px;
-    padding: 16px;
+  .hero-subtext {
+    font-size: 13px;
+  }
+
+  .hero-button {
+    padding: 12px 22px;
+    font-size: 14px;
+  }
+
+  .slider-img {
+    width: 160px;
+    height: 220px;
+  }
+
+  .slider-track {
+    gap: 16px;
   }
 }
