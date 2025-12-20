@@ -10,104 +10,147 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding-bottom: 120px;
+  padding-bottom: 140px;
 }
+
+/* ================= OVERLAY ================= */
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(2px);
+  background:
+          radial-gradient(
+                  800px 500px at 50% 20%,
+                  rgba(209, 146, 46, 0.25),
+                  transparent 60%
+          ),
+          linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.35),
+                  rgba(0, 0, 0, 0.75)
+          );
+  backdrop-filter: blur(3px);
   z-index: 1;
 }
+
+/* ================= CONTENT ================= */
 
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 720px;
-  padding: 24px;
+  max-width: 760px;
+  padding: 28px;
   text-align: center;
-  animation: fadeIn 1.2s ease-out;
+  animation: heroReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-title {
-  font-size: 46px;
+  font-size: 50px;
   font-weight: 700;
-  color: #f5ecdf;
+  color: #f8f1e6;
   font-family: "Playfair Display", serif;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
+  letter-spacing: 0.4px;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
 }
 
 .hero-text {
-  font-size: 18px;
-  color: #e8dcc8;
-  margin-bottom: 16px;
-  line-height: 1.7;
+  font-size: 19px;
+  color: #efe4d2;
+  margin-bottom: 18px;
+  line-height: 1.75;
 }
 
 .hero-subtext {
   font-size: 16px;
-  color: #cbbba3;
+  color: #d6c4aa;
   font-style: italic;
-  margin-bottom: 30px;
+  margin-bottom: 36px;
 }
 
+/* ================= BUTTON ================= */
+
 .hero-button {
-  padding: 14px 36px;
+  position: relative;
+  padding: 15px 42px;
   font-size: 16px;
-  background-color: #d1922e;
-  color: white;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  background: linear-gradient(135deg, #e0a743, #b57b1d);
+  color: #0b0b0f;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow:
+          0 8px 24px rgba(209, 146, 46, 0.45),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+  transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
 }
 
 .hero-button:hover {
-  background-color: #b87e23;
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow:
+          0 14px 40px rgba(209, 146, 46, 0.75),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.35);
 }
 
-@keyframes fadeIn {
+/* ================= REVEAL ================= */
+
+@keyframes heroReveal {
   from {
     opacity: 0;
-    transform: translateY(25px);
+    transform: translateY(40px) scale(0.96);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
-/* === Slider === */
+/* ================= SLIDER ================= */
+
 .hero-slider {
   position: relative;
   z-index: 2;
-  margin-top: 60px;
+  margin-top: 70px;
   overflow: hidden;
   width: 100%;
   max-width: 100%;
+  mask-image: linear-gradient(
+          to right,
+          transparent,
+          black 10%,
+          black 90%,
+          transparent
+  );
 }
 
 .slider-track {
   display: flex;
-  gap: 24px;
-  animation: slide 60s linear infinite;
+  gap: 26px;
+  animation: slide 70s linear infinite;
   will-change: transform;
 }
 
 .slider-img {
   flex: 0 0 auto;
-  width: 200px;
-  height: 260px;
+  width: 210px;
+  height: 280px;
   object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s;
+  border-radius: 16px;
+  box-shadow:
+          0 10px 26px rgba(0, 0, 0, 0.55),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  transition:
+          transform 0.35s ease,
+          box-shadow 0.35s ease;
 }
 
 .slider-img:hover {
-  transform: scale(1.05);
+  transform: translateY(-6px) scale(1.06);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.75);
 }
 
 @keyframes slide {
@@ -119,8 +162,13 @@
   }
 }
 
-/* === Adaptive === */
+/* ================= ADAPTIVE ================= */
+
 @media (max-width: 768px) {
+  .hero {
+    padding-bottom: 100px;
+  }
+
   .hero-title {
     font-size: 30px;
   }
@@ -134,7 +182,7 @@
   }
 
   .hero-button {
-    padding: 12px 22px;
+    padding: 12px 26px;
     font-size: 14px;
   }
 
@@ -144,6 +192,6 @@
   }
 
   .slider-track {
-    gap: 16px;
+    gap: 18px;
   }
 }
